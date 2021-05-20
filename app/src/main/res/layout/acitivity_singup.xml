@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="registerVM"
+            type="com.example.interviewtask_devnapps.viewModel.RegisterViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#008577"
+        android:orientation="vertical"
+        android:scrollbarAlwaysDrawVerticalTrack="true"
+        tools:context=".view.RegisterActivity">
+
+        <RelativeLayout
+            android:id="@+id/loginLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true">
+
+            <TextView
+                android:id="@+id/login_title"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:gravity="center_horizontal"
+                android:text="New User Signup"
+                android:textColor="#fff"
+                android:textSize="26sp"
+                android:textStyle="bold" />
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/login_title"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="70dp"
+                android:layout_marginRight="30dp"
+                android:background="#fff"
+                android:elevation="4dp"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingTop="30dp">
+
+
+                    <EditText
+                        android:id="@+id/edt_email"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:drawableStart="@drawable/ic_email"
+                        android:drawablePadding="10dp"
+                        android:hint="@{registerVM.emailHint}"
+                        android:inputType="textEmailAddress"
+                        android:singleLine="true"
+                        android:text="@={registerVM.email}" />
+
+                    <EditText
+                        android:id="@+id/edt_password"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableStart="@drawable/ic_lock"
+                        android:drawablePadding="10dp"
+                        android:hint="@{registerVM.passHint}"
+                        android:inputType="textPassword"
+                        android:singleLine="true"
+                        android:text="@={registerVM.password}" />
+
+
+                    <Button
+                        android:id="@+id/registerBtn"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="22dp"
+                        android:background="#d67601"
+                        android:onClick="@{() -> registerVM.register()}"
+                        android:text="Register"
+                        android:textAllCaps="false"
+                        android:textColor="#fff"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/loginBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:onClick="@{(v) -> registerVM.loginNav(v)}"
+                        android:text="Already have an account.\nLogin Here"
+                        android:textAlignment="center"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
+                </LinearLayout>
+
+            </RelativeLayout>
+
+
+        </RelativeLayout>
+
+        <ProgressBar
+            android:id="@+id/progressbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:visibility="gone" />
+
+    </RelativeLayout>
+</layout>
